@@ -31,14 +31,13 @@ if (resolvedConfig.useLocalAuth) {
         ) {
           const user = await prisma.user.upsert({
             where: {
-              id: credentials.username,
+              email: credentials.username,
             },
             create: {
-              id: credentials.username,
+              email: credentials.username,
               name: credentials.username,
             },
             update: {
-              id: credentials.username,
               name: credentials.username,
             },
           })
